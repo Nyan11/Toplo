@@ -47,7 +47,9 @@ ToAlbum >> initialize [
 
 	super initialize.
 	self matchParent.
-	self whenTextEditedDo: [ self edited: true ].
+	
+	self editorDo: [:ed | ed when: AlbTextEditedEvent do: [ self edited: true ] ].
+	"self whenTextEditedDo: [ self edited: true ]."
 ]
 
 { #category : #accessing }

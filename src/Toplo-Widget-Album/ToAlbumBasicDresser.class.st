@@ -80,8 +80,8 @@ ToAlbumBasicDresser >> onInstalledIn: anElement [
 	anElement innerElement padding: self defaultPadding.
 	
 	" add/remove placeholder according to unaccepted text size"
-	anElement whenTextEditedDo: [ self checkTextIn: anElement ].
-	anElement whenTextReplacedDo: [ self checkTextIn: anElement ].
+	anElement editorDo: [:ed | ed when: AlbTextEditedEvent do: [ self checkTextIn: anElement ] ].
+	anElement editorDo: [:ed | ed when: AlbTextReplacedEvent do: [ self checkTextIn: anElement ] ].
 	
 	infiniteBlurHandler := BlEventHandler
 		on: BlBlurEvent
