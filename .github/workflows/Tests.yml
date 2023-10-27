@@ -21,7 +21,6 @@ jobs:
       - uses: hpi-swa/setup-smalltalkCI@v1
         with:
           smalltalk-image: ${{ matrix.smalltalk }}
-          smalltalkCI-branch: 'SteelSheet'
       - name: Load in New Image and Run Tests
         run: smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
         shell: bash
