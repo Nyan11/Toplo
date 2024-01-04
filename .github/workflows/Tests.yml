@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - 'master'
-      - 'SteelSheet'
+      - 'main'
   pull_request:
     types: [assigned, opened, synchronize, reopened]
 
 jobs:
   build:
     strategy:
+      # Default value means that a failure in one OS cancels all 
+      fail-fast: false
       matrix:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
         smalltalk: [ Pharo64-11, Pharo64-12 ]
